@@ -1,4 +1,4 @@
-# Salesforce Contact List
+## Salesforce Contact List
 
 This sample shows an example of a Salesforce contact list app. It pulls JSON data from an instance of SFDC which contains all of the available Contacts for the logged in account.
 
@@ -22,23 +22,51 @@ This sample shows an example of a Salesforce contact list app. It pulls JSON dat
 
 * Photos used (landing, landing-logo, profile-background) are provided by myself, [Chad Tetreault](http://www.twitter.com/chadtatro). Use as you wish.
 
-**Known Issues**
+## App Setup
 
-* None
+**Setup**
+
+This sample assumes you already have a Salesforce developer account with a Connected App setup.
+
+Modify the following in the source code, and replace with your instances information.
+
+***AppCtrl.js***
+
+```
+// your shouldn't store keys in the code. this is for demo only.
+window.OAuth = {
+	clientId: '<your client id>',
+	clientSecret: '<your client secret>',
+	url: {
+		authorize: 'https://login.salesforce.com/services/oauth2/token'
+	}
+};
+
+```
+
+***LoginCtrl.js***
+
+```
+$scope.loginData = {
+  username: '<username>',
+  password: '<password>',
+  securityToken: '<secret login token>'
+};
+```
 
 ## Environment Setup
 
 This sample uses [Ionic Framework](http://www.ionicframework.com). The fastest, and simplest way to install it is via [NPM/Node.js](http://nodejs.org).
 
-1. Install [Node.js](http://www.nodejs.org)
+* Install [Node.js](http://www.nodejs.org)
 
-2. Install Cordova
+* Install Cordova
 
 ```
 npm install -g cordova
 ```
 
-3. Install Ionic
+* Install Ionic
 
 ```
 npm install -g ionic
@@ -50,27 +78,27 @@ To build and deploy on BlackBerry 10 follow these steps. For other platforms, pl
 
 **BlackBerry 10**
 
-1. Clone this repo to your local machine.
+* Clone this repo to your local machine.
 
-2. Ensure the [BlackBerry 10 WebWorks SDK 2.0](https://developer.blackberry.com/html5/download/sdk) is correctly installed, and your setup your signing keys as described in the [Getting Started Guide](https://developer.blackberry.com/html5/documentation/v2_2/getting_started.htm).
+* Ensure the [BlackBerry 10 WebWorks SDK 2.0](https://developer.blackberry.com/html5/download/sdk) is correctly installed, and your setup your signing keys as described in the [Getting Started Guide](https://developer.blackberry.com/html5/documentation/v2_2/getting_started.htm).
 
-3. Open a command prompt (windows) or terminal (mac) and run the following command:
+* Open a command prompt (windows) or terminal (mac) and run the following command:
 
 ```
 ionic start myAppName blank
 ```
 
-4. In the new project's **www** folder, **delete** everything **except** the **lib** folder
+* In the new project's **www** folder, **delete** everything **except** the **lib** folder
 
-5. Copy & Paste the sample app files and folders into the root folder of the new project and overwrite any conflicts
+* Copy & Paste the sample app files and folders into the root folder of the new project and overwrite any conflicts
 
-7. Add the Platforms you want to target
+* Add the Platforms you want to target
 
  ```
  cordova platform add blackberry10
  ```
 
-8. Build the project
+* Build the project
 
  ```
  cordova build
